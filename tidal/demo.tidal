@@ -1,0 +1,151 @@
+# intro
+
+Tidal https://tidalcycles.org/  make patterns with code
+
+language for describing
+(e.g., polyphonic, polyrhythmic, generative) sequences.
+
+extensive library ... for transforming and combining them.
+
+quickly create complex patterns from simple ingredients. 
+
+does not make sound itself, uses 
+https://supercollider.github.io/
+https://github.com/musikinformatik/SuperDirt
+
+is embedded in the Haskell language https://www.haskell.org/
+
+
+# sources of sound
+
+## synthesizers
+
+s "superpiano" >| n "0"
+
+d1 $ s "superpiano" >| n "0"
+
+d1 $ s "superpiano" >| n "c"
+
+
+## samples
+
+d1 $ s "numbers" >| n "0"
+
+d1 $ s "numbers" >| n "0" # speed 0.5
+
+d1 $ s "numbers" >| n "0" # speed rand
+
+hush
+
+## effects
+
+d1 $ s "numbers" >| n "0" # speed rand # pan rand
+  # delay 1 # delayfb 0.8 # delayt (1/3)
+
+
+# patterns
+
+## concatenation (naive)
+
+d1 $ s "superpiano" >| n "<c d e>"
+
+setcps (2/3)
+
+d1 $ s "superpiano" >| n "<c d e>"
+  # delay 1 # delayfb 0.8 # delayt (1/3)
+
+## speed up, speed down:
+
+d1 $ s "superpiano" >| n "<c d e>*2"
+
+## combine two patterns
+
+d1 $ s "<superpiano superhammond>" >| n "<c d e>"
+
+structure from right, left, both (indicated by the bar | )
+
+d1 $ s "<superpiano superhammond>*3" |>| n "<c d e>*2"
+
+values from left (<), right (>), combined (+), (*)
+
+d1 $ s "superpiano" >| n ( "<c d>" |<| "<0 0>" )
+
+hush
+
+## functions that produce and modify patterns: run, slow, rev
+
+d1 $ s "superpiano" >| n (run 6)
+
+d1 $ s "superpiano" >| n (slow 6 $ run 6)
+
+d1 $ s "superpiano"
+  >| n (scale "major" $ slow 6 $ run 6)
+
+where do we put the rev?
+
+d1 $ s "superpiano"
+  >| n (scale "major" $ slow 6 $ rev $ run 6)
+
+## parallel composition: stack, ","
+
+d1 $ s "superpiano" >| n (stack ["<c3 g3 a3>", "<e f>" ])
+
+d1 $ s "superpiano" >| n "<c3 g3 a3, e f>"
+
+## sequential composition? exact semantics of "< .. >" (cat, slowcat)
+
+:type cat
+
+:doc cat
+
+d1 $ s "superpiano" >| n ( "<<c c g4> e>" )
+
+d1 $ s "superpiano" >| n ( "<<c c g4> <e c ~ >>" )
+
+## cat and speed-up: fastcat "[ .. ]"
+
+d1 $ s "superpiano" >| n ( "<c <c6 f> ~ <~ g>>" )
+
+d1 $ s "superpiano" >| n ( "<c <c6 f>*2 ~ <~ g>*2>" )
+
+d1 $ s "superpiano" >| n ( "<c [c6 f] ~ [~ g]>" )
+
+d1 $ s "superpiano" >| n ( "<c [c6 f] ~ [~ g]>*4" )
+
+d1 $ s "superpiano" >| n ( "[c [c6 f] ~ [~ g]]" )
+
+hush
+
+## time-shift  ~>
+
+d1 $ s "superpiano" >| n ( "<0 0.75>" ~> "<<c c g4> <e c ~ >>" )
+   --  # delay 1 # delayfb 0.5 # delayt (1/3)
+
+# all of the above
+
+d2 $ s "superpiano" >| n ( "<0.5 0>" ~>  (scale "major" $ slow 6 $ rev $ run 6) )
+   # delay 1 # delayfb 0.5 # delayt (1/3)
+   
+d3 $ s "supersquare" >| n ( "c [c6 f] ~ [~ g]" ) # gain 0.8
+
+d4 $ s "[bd 808cy 808cy bd]*2" # lpf 5000  -- uses samples: see next talks
+
+d5 $ s "supersaw" >| n "<c3*2 c3>"
+
+hush
+
+
+
+# references:
+
+* https://tidalcycles.org/index.php/All_effects_and_synths
+* https://github.com/musikinformatik/SuperDirt
+* https://github.com/tidalcycles/Dirt-Samples
+
+* https://tidalcycles.org/index.php/Tutorial
+* https://www.imn.htwk-leipzig.de/~waldmann/etc/untutorial/tc/types/
+* https://tidalcycles.org/index.php/Mini_notation_syntax
+
+* https://hackage.haskell.org/package/tidal-1.4.9/docs/Sound-Tidal-Core.html#v:cat
+
+
