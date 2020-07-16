@@ -4,7 +4,7 @@ Workshop documents about algorithmic music with functional programming. Concepts
 ## Order of presentations
 
 1. Overview about algorithmic music (15 min)
-2. TidalCycles (105min)
+2. TidalCycles (105min) -> Maybe two presentations? One for Tidal only and one for the Haskell insights?
 3. CSound (120min)
 4. Euterpea (?)
 5. More?!
@@ -20,9 +20,19 @@ Workshop documents about algorithmic music with functional programming. Concepts
 1. Live-Coding
 2. Demo - Writing code
 3. Haskell insights (TidalCycles as DSL)
+   1. Pattern Type (FRP like context)
+   1. Type Signature 
+   3. Type System
+   1. Higher-Order Functions
+   2. Polymorphy
+   2. Pattern type as instance of Functor, Applicative and Monad
 4. Mini-Concert
 
+## Euterpea
+*Under Construction*
+
 ## CSound-Expression
+*Under Construction*
 
 1. Another Haskell-DSL
 2. Sound-Design (additive synthesis)
@@ -31,6 +41,3 @@ Workshop documents about algorithmic music with functional programming. Concepts
 5. Scores (sequential/parallel composition)
 6. Stochastic automaton and markov process
 
-## Euterpea
-
-TODO
