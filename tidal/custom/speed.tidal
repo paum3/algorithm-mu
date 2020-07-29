@@ -1,4 +1,4 @@
--- This is a little demo video of my custom s-- This is a little demo video of my custom speed function
+-- This is a little demo script of my custom speed function
 
 -- Calculating the n'th root of a value
 nroot :: (Integral a, Floating b) => a -> b -> b 
