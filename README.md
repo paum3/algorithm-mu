@@ -20,7 +20,8 @@ In the most extreme variant, the algorithm "from scratch" is used for live-codin
 ## TidalCycles
 
 Language for creating sequences using patterns. Is a Haskell DSL.
-The workshop documentation for the rest of the talk is available on Github:   
+The workshop documentation for the rest of the talk is available under:
+https://github.com/thgrund/algorithm-mu/blob/master/tidal/workshop.tidal
 
 ## Workshops - Algorithmic Music with Functional Programming 
 Workshop documents about algorithmic music with functional programming. Concepts of functional programming based on Haskell will be introduced and the possibilities of composition and music creation with code will be demonstrated.
