@@ -41,7 +41,7 @@ Workshop documents about algorithmic music with functional programming. Concepts
 2. Live-Algorithmic (Euterpea, Csound)
 
 ### TidalCycles
-1. Einordnung
+1. Introduction
 2. Demo - Writing code
 3. Haskell insights (TidalCycles as DSL)
    1. Pattern Type (FRP like context)
