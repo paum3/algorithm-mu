@@ -15,7 +15,7 @@ Algorithmic music can be divided into the two extreme "live algorithms" and "liv
 
 Live algorithms are algorithms that are triggered once and are not changed again. But parameters could be changed by sensors, my/your GPS position or the weather on Java.
 
-In the most extreme variant, the algorithm "from scratch" is used for live-coding. You start in front of an empty editor window and then write an algorithm. The text is the musical interface and is written with the help of a keyboard (or anything else you can write text with -> attempts with a piano have already been made). Live-coding is used to create visuals, dance choreographies, teaching (e.g. robotics) or even in music.
+In the most extreme variant, you write algorithms "from scratch" in live-coding. You start in front of an empty editor window and then write an algorithm. The text is the musical interface and is written with the help of a keyboard (or anything else you can write text with -> attempts with a piano have already been made). Live-coding is used to create visuals, dance choreographies, teaching (e.g. robotics) or even in music.
 
 ## TidalCycles
 
